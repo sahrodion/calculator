@@ -51,15 +51,16 @@ body{
 .display-1{
     opacity: .4;
     font-size: 20px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .temp-display{
     position: absolute;
-    bottom: 10;
+    bottom: 0;
     left: 10;
     opacity: .3;
     font-size: 20px;
+    margin-bottom: 10px;
 
 }
 

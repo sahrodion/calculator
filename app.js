@@ -13,7 +13,7 @@ function onLoad(){
     let disp1num = '';
     let disp2num = '';
     let result = null;
-    let letLastOperation = '';
+    let lastOperation = '';
     let haveDot = false;
     
     
@@ -28,6 +28,34 @@ function onLoad(){
             display2El.innerText = disp2num;
         })
     });
+
+
+operatiionEl.forEach( operation => {
+    operation.addEventListener('click', (e) =>{
+        if (!disp2num) return;
+        haveDot = false;
+        const operationName = e.target.innerText;
+        if (disp2num && disp1num && lastOperation){
+            mathOperation();
+        }else{
+            result = parseFloat(disp2num)
+        }
+        
+        clearVar(operationName);
+        lastOperation = operationName;
+        console.log(result);
+    })
+});
+
+
+function clearVar(name = ''){
+    disp1num += disp2num + ' ' + name + ' ';
+    display1El.innerText = disp1num;
+    display2El.innerText = '';
+    disp2num = ' ';
+    tempResultEl.innerText = result;
+}
+
 }
 
 
